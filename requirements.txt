@@ -1,0 +1,24 @@
+import PyPDF2
+import cryptography
+import pandas
+from pythonwin import pywin
+import reportlab
+import scispacy
+import spacy
+import streamlit
+import transformers
+import dotenv
+from dotenv import load_dotenv
+
+
+load_dotenv()
+
+streamlit==1.33
+pandas==2.2
+spacy==3.7
+scispacy==0.8
+transformers==4.40
+reportlab==4.1
+PyPDF2==3.0
+cryptography==42.0
+dotenv==1.0

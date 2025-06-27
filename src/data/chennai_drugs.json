@@ -1,0 +1,41 @@
+{
+  "drugs": [
+    {
+      "name": "metformin",
+      "brands": ["Glyciphage", "Metroz", "Metfford"],
+      "class": "Biguanide",
+      "indications": ["Type 2 Diabetes"],
+      "mechanism": "AMPK activation → ↓ hepatic gluconeogenesis",
+      "metabolism": "Renal excretion (90%)",
+      "side_effects": ["GI upset", "B12 deficiency", "Lactic acidosis"],
+      "contraindications": ["eGFR<30", "Contrast media exposure"],
+      "monitoring": ["Renal function", "B12 levels"],
+      "alternatives": ["Glimepiride", "Sitagliptin", "Empagliflozin"],
+      "chennai_specific": {
+        "availability": "Widely available (₹5-10/tablet)",
+        "preferred_labs": ["Thyrocare", "Metropolis for B12 testing"]
+      }
+    },
+    {
+      "name": "dolo",
+      "brands": ["Dolo 650"],
+      "class": "NSAID",
+      "active_ingredient": "paracetamol",
+      "max_daily_dose": 4000,
+      "overdose_management": "N-acetylcysteine protocol",
+      "chennai_specific": {
+        "common_misuse": "Often overused for fever in dengue season",
+        "pharmacy_notes": "Available without prescription"
+      }
+    }
+  ],
+  "interaction_rules": [
+    {
+      "type": "renal_risk",
+      "description": "Combination of nephrotoxic drugs",
+      "severity": "high",
+      "action": "Monitor creatinine weekly or use alternative",
+      "example_pairs": ["metformin+ibuprofen", "ACEI+NSAID"]
+    }
+  ]
+}

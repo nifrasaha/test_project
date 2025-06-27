@@ -1,0 +1,23 @@
+report = """
+APOLLO HOSPITALS, CHENNAI
+Ref No: CHN-2023-5678
+
+PATIENT INFORMATION
+Name: Rajesh Kumar
+Age: 45
+Sex: Male
+MRN: 123456
+
+CLINICAL HISTORY
+Patient presented with கீழ்வயிற்று வலி (abdominal pain) and fever. 
+Known diabetic on Metformin 500mg BD. Allergy to penicillin.
+
+FINDINGS
+CT abdomen shows கல்லீரல் fatty changes. 
+ECG: Normal sinus rhythm.
+
+IMPRESSION
+1. Acute gastritis
+2. Fatty liver disease
+3. Continue Metformin for diabetes management
+"""

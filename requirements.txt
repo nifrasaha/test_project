@@ -1,9 +1,6 @@
 streamlit==1.32.2
 pandas==2.1.4
-scispacy==0.5.1
 spacy==3.4.4
-PyPDF2==3.0.1
+scispacy==0.5.1
 requests==2.31.0
-reportlab==4.1.0
-openai>=1.0.0
-https://s3-us-west-2.amazonaws.com/ai2-s2-scispacy/releases/v0.5.1/en_ner_bc5cdr_md-0.5.1.tar.gz
+PyPDF2==3.0.1

@@ -5,6 +5,11 @@ import subprocess
 if "HOSTNAME" in os.environ and "streamlit" in os.environ["HOSTNAME"]:
     # Run setup script
     subprocess.run(["bash", "setup.sh"])
+    # Install the scispaCy model directly for the deployment environment.
+    subprocess.run([
+        "pip", "install",
+        "https://s3-us-west-2.amazonaws.com/ai2-s2-scispacy/releases/v0.5.1/en_ner_bc5cdr_md-0.5.1.tar.gz"
+    ])
     
     # Set environment variables
     os.environ["STREAMLIT_SERVER_PORT"] = "8501"

@@ -5,9 +5,13 @@ import uuid
 import json
 import pandas as pd
 from cryptography.fernet import Fernet
+import os # Import os module to access environment variables
 
 # Initialize encryption
-ENCRYPTION_KEY = b'6WPt54iaDwYblRVCbdOn-p9mUIfk-uM3PEiELa82y2Q='  # Example, use your generated key
+# Load encryption key from environment
+ENCRYPTION_KEY = os.getenv("ENCRYPTION_KEY")
+if not ENCRYPTION_KEY:
+    raise RuntimeError("ENCRYPTION_KEY not set in environment for patient_database.py")
 cipher_suite = Fernet(ENCRYPTION_KEY)
 
 # Database setup

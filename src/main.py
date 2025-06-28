@@ -1,3 +1,15 @@
+import os
+import subprocess
+
+# Check if we're in Streamlit cloud
+if "HOSTNAME" in os.environ and "streamlit" in os.environ["HOSTNAME"]:
+    # Run setup script
+    subprocess.run(["bash", "setup.sh"])
+    
+    # Set environment variables
+    os.environ["STREAMLIT_SERVER_PORT"] = "8501"
+    os.environ["STREAMLIT_SERVER_HEADLESS"] = "true"
+
 import streamlit as st
 import json
 import pandas as pd
@@ -24,9 +36,6 @@ st.set_page_config(
     page_icon="❤️",
     layout="centered"
 )
-
-# Initialize Fernet key
-print(Fernet.generate_key())
 
 # Initialize NLP processor
 @st.cache_resource
@@ -144,7 +153,10 @@ def init_db():
 processor = load_processor()
 
 # Initialize OpenAI client (add your API key)
-client = OpenAI(api_key="your-api-key")
+if "OPENAI_API_KEY" not in st.secrets:
+    st.error("OpenAI API key not found. Please add it to your .streamlit/secrets.toml file.")
+    st.stop()
+client = OpenAI(api_key=st.secrets.get("OPENAI_API_KEY"))
 
 # Initialize engines
 @st.cache_resource
@@ -1079,12 +1091,7 @@ def patient_records_page():
 
 # Main app
 def main():
-    st.set_page_config(
-        page_title="MedAI Assistant",
-        layout="centered",
-        page_icon="⚕️"
-    )
-    init_db() # Initialize database tables
+    init_db()  # Initialize database tables
     
     # Initialize session state
     if "current_page" not in st.session_state:

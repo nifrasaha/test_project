@@ -27,7 +27,7 @@ def authenticate():
             username = st.text_input("Medical ID")
             password = st.text_input("Password", type="password")
             if st.button("Access Medical Portal"):
-                if Self._verify_credentials(username, password):
+                if _verify_credentials(username, password):
                     st.session_state.authenticated = True
                     st.rerun()
                 else:
